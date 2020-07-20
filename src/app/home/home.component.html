@@ -1,0 +1,40 @@
+<div class="container background">
+    <div class="row mt-5">        
+        <div class="offset-md-3 col-md-6 conteudo p-5">
+            <div class="row justify-content-center">
+                <h1>Pizzaria do Alto</h1>
+            </div>
+            <div class="row justify-content-center">
+                <p>Bem-vindo!</p>
+            </div>
+            <div class="row mb-2">
+                <button mat-raised-button color="primary" class="col-12" (click)="openCardapio()">Cardápio</button>
+            </div>
+            <div class="row mb-2">
+                <button mat-raised-button color="primary" class="col-12" (click)="openCadastro()">Se cadastrar</button>
+            </div>
+            <div class="row mb-2">
+                <button mat-raised-button color="primary" class="col-12" (click)="showEntrar=!showEntrar">Entrar</button>
+            </div>
+            <div class="row mb-2 conteudo-branco justify-content-center" *ngIf="showEntrar">
+                <form>
+                    <div class="row m-2">
+                        <mat-form-field>
+                          <mat-label>CPF</mat-label>
+                          <input class="col-12" matInput placeholder="digite seu CPF">
+                        </mat-form-field>
+                    </div>
+                    <div class="row m-2">
+                        <mat-form-field>
+                          <mat-label>Senha</mat-label>
+                          <input class="col-12" matInput placeholder="digite sua senha" type="password">
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+            <div class="row mb-2" *ngIf="showEntrar">
+                <button mat-raised-button color="primary" class="col-12" (click)="openConfirmar()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
