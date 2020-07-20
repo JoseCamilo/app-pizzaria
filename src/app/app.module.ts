@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
 
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -24,7 +26,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
