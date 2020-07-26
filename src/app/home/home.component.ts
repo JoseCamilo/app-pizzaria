@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,9 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   showEntrar = false;
+  invalidUser = false;
+
+  @ViewChild('loginForm', {static: false}) loginForm: Form;
 
   constructor(private router: Router) { }
 
@@ -21,5 +25,15 @@ export class HomeComponent implements OnInit {
 
   openCadastro() {
     this.router.navigateByUrl('/cadastro');
+  }
+
+  onSubmitLogin() {
+    if (this.loginForm.value.cpf !== '38918245807' ||
+    this.loginForm.value.senha !== '3153') {
+      this.invalidUser = true;
+    } else {
+      this.invalidUser = false;
+      this.router.navigateByUrl('/menu');
+    }
   }
 }

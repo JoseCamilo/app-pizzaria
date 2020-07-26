@@ -17,23 +17,27 @@
                 <button mat-raised-button color="primary" class="col-12" (click)="showEntrar=!showEntrar">Entrar</button>
             </div>
             <div class="row mb-2 conteudo-branco justify-content-center" *ngIf="showEntrar">
-                <form>
+                <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
                     <div class="row m-2">
                         <mat-form-field>
                           <mat-label>CPF</mat-label>
-                          <input class="col-12" matInput placeholder="digite seu CPF">
+                          <input matInput placeholder="digite seu CPF" name="cpf" ngModel required>
                         </mat-form-field>
                     </div>
                     <div class="row m-2">
                         <mat-form-field>
                           <mat-label>Senha</mat-label>
-                          <input class="col-12" matInput placeholder="digite sua senha" type="password">
+                          <input matInput placeholder="digite sua senha" type="password" name="senha" ngModel required>
                         </mat-form-field>
                     </div>
+                    <div class="row mb-2">
+                        <button mat-raised-button color="primary" class="col-12" type="submit" [disabled]="!loginForm.form.valid">Confirmar</button>
+                    </div>
+                    <div class="row mb-2 alert alert-danger" *ngIf="invalidUser">
+                        Usuário inválido
+                    </div>
                 </form>
-            </div>
-            <div class="row mb-2" *ngIf="showEntrar">
-                <button mat-raised-button color="primary" class="col-12" (click)="openConfirmar()">Confirmar</button>
+
             </div>
         </div>
     </div>
